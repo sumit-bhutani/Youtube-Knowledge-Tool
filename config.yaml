@@ -1,0 +1,45 @@
+# The Briefing — Configuration
+# All configurable values live here. No hardcoded values anywhere in src/.
+
+# YouTube channels to monitor
+# channel_id: starts with UC — find it at youtube.com/@ChannelName/about
+channels:
+  - id: REPLACE_WITH_CHANNEL_ID
+    name: "Channel Name"
+  # Add more channels below:
+  # - id: UCxxxxxx
+  #   name: "Another Channel"
+
+youtube:
+  lookback_hours: 24      # Fetch videos published in the last N hours
+  buffer_hours: 48        # P1: also catch videos up to N hours old (upload delays)
+
+database:
+  path: data/briefing.db
+
+logging:
+  level: INFO             # DEBUG, INFO, WARNING, ERROR
+  dir: logs/
+
+# Models (set per engineering review — do not change without reviewing cost impact)
+models:
+  scoring: claude-haiku-4-5-20251001      # Relevance scoring (cheap, fast)
+  brief: claude-sonnet-4-6                # Full 5-step brief (high quality)
+  compounding: claude-haiku-4-5-20251001  # Connection detection (cheap, fast)
+
+# Compounding layer — hybrid domain filter (V1)
+compounding:
+  max_prior_briefs: 25    # Max prior briefs to send Claude when detecting connections
+
+# Delivery
+delivery:
+  send_hour_pt: 7         # Target delivery hour (Pacific Time)
+
+# Focus domains for relevance scoring
+domains:
+  - "AI / LLMs / Agents"
+  - "Product Management & Strategy"
+  - "Startups & Founding"
+  - "Business & Market Dynamics"
+  - "Career & Personal Development"
+  - "Technology & Business"

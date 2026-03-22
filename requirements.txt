@@ -1,0 +1,10 @@
+google-api-python-client==2.149.0
+google-auth==2.35.0
+google-auth-oauthlib==1.2.1
+google-auth-httplib2==0.2.0
+youtube-transcript-api==0.6.2
+anthropic==0.40.0
+notion-client==2.2.1
+pyyaml==6.0.2
+python-dotenv==1.0.1
+tenacity==9.0.0
